@@ -1,0 +1,26 @@
+node_modules/
+dist/
+ignored/
+npm-debug.log
+.nyc_output/
+coverage/
+
+# OS- and tool-specific
+.DS_Store
+.idea/shelf/
+.idea/inspectionProfiles/
+
+# Idea user-specific stuff:
+.idea/dictionaries/
+.idea/libraries/
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/vcs.xml
+.idea/jsLibraryMappings.xml
+.idea/misc.xml
+
+# Idea sensitive or high-churn files:
+.idea/dataSources.ids
+.idea/dataSources.xml
+.idea/dataSources.local.xml
+.idea/dynamic.xml
