@@ -136,6 +136,7 @@
     "all": true
   },
   "scripts": {
+    "update-packages": "npm outdated --depth=0 | grep -v Package | awk '{print $1}' | xargs -I% npm install %@latest --sav",
     "prepush": "npm run lint && npm run test",
     "debug": "npm run build-vendor && webpack-dev-server --config webpack.config.js --host 0.0.0.0 --port 52000 --hot --inline --history-api-fallback",
     "build": "npm run lint && npm run test && npm run clean && NODE_ENV=production npm run build-vendor && NODE_ENV=production npm run build-assets",
