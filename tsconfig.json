@@ -1,0 +1,26 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "jsx": "react",
+    "target": "es5",
+    "sourceMap": true,
+    "noImplicitAny": false,
+    "removeComments": false,
+    "preserveConstEnums": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "lib": [
+      "dom",
+      "es6"
+    ]
+  },
+  "include": [
+    "./node_modules/**/dist/*.d.ts",
+    "./src/**/*.ts",
+    "./src/**/*.tsx",
+    "./test/**/*.{ts,tsx}"
+  ],
+  "files": [
+    "./typings-custom/tsd.d.ts"
+  ]
+}

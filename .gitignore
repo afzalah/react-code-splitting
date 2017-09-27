@@ -1,9 +1,5 @@
 node_modules/
-dist/
-ignored/
 npm-debug.log
-.nyc_output/
-coverage/
 
 # OS- and tool-specific
 .DS_Store
@@ -24,3 +20,5 @@ coverage/
 .idea/dataSources.xml
 .idea/dataSources.local.xml
 .idea/dynamic.xml
+.idea/modules.xml
+code-splitting.iml

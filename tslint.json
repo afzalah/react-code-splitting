@@ -1,0 +1,76 @@
+{
+  "extends": [
+    "tslint:recommended"
+  ],
+  "rules": {
+    "comment-format": [
+      "check-uppercase"
+    ],
+    "no-console": [
+      false,
+      "debug",
+      "info",
+      "time",
+      "timeEnd",
+      "trace"
+    ],
+    "no-parameter-properties": true,
+    "space-before-function-paren": [
+      true,
+      {
+        "method": "never"
+      }
+    ],
+    "no-inferrable-types": false,
+    "no-null-keyword": false,
+    "no-require-imports": false,
+    "no-switch-case-fall-through": true,
+    "no-unused-variable": true,
+    "object-literal-sort-keys": false,
+    "quotemark": [
+      true,
+      "double",
+      "jsx-double",
+      "avoid-escape"
+    ],
+    "switch-default": true,
+    "trailing-comma": [
+      true,
+      {
+        "multiline": "never",
+        "singleline": "never"
+      }
+    ],
+    "typedef": [
+      true,
+      "call-signature",
+      "parameter",
+      "arrow-parameter",
+      "property-declaration",
+      "variable-declaration",
+      "member-variable-declaration"
+    ],
+    "variable-name": [
+      true,
+      "check-format",
+      "ban-keywords"
+    ],
+    "no-unused-expression": false,
+    "no-unused-expression-chai": true,
+    "prefer-const": false,
+    "object-literal-key-quotes": [
+      true
+    ],
+    "array-type": [
+      true,
+      "array-simple"
+    ],
+    "ordered-imports": false,
+    "ban-types": true,
+    "only-arrow-functions": false,
+    "no-empty-interface": false
+  },
+  "rulesDirectory": [
+    "node_modules/tslint-no-unused-expression-chai/rules"
+  ]
+}

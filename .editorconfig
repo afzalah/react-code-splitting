@@ -1,0 +1,15 @@
+root = true
+
+[*.{js,ts,tsx}]
+charset = utf-8
+indent_style = space
+indent_size = 4
+
+[*.{less,css}]
+charset = utf-8
+indent_style = space
+indent_size = 4
+
+[.babelrc]
+indent_style = space
+indent_size = 2
