@@ -29,7 +29,7 @@ class App extends React.Component<any, any> {
     }
 }
 
-ReactDOM.render(<App/>, document.getElementById("application"));
+ReactDOM.render(<App/>, document.getElementById("app"));
 
 /* tslint:disable */
 export default App;

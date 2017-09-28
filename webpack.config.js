@@ -21,7 +21,7 @@ const webPackDefaultPlugins = [
         inject: false,
         template: 'node_modules/html-webpack-template/index.ejs',
 
-        appMountId: "application",
+        appMountId: "app",
         file: "index.html",
         title: "Code Splitting",
         baseHref: buildDep("/", "/react/"),
