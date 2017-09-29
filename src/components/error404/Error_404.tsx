@@ -1,7 +1,7 @@
 import * as React from "react";
 import {Grid, Row, Col, Alert} from "react-bootstrap";
 
-class Error404 extends React.Component<IError404Props, any> {
+class Error404 extends React.Component {
     public render(): React.ReactElement<any> {
         return (
             <Grid className="error-404" fluid={true}>
@@ -15,12 +15,6 @@ class Error404 extends React.Component<IError404Props, any> {
             </Grid>
         );
     }
-}
-
-interface IError404Props {
-    route: any;
-    params: any;
-    location: any;
 }
 
 export default Error404;

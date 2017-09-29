@@ -1,25 +1,25 @@
-const path = require('path');
+const path = require("path");
 const webpack = require("webpack");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const StyleLintPlugin = require('stylelint-webpack-plugin');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
+const StyleLintPlugin = require("stylelint-webpack-plugin");
 
-const argv = require('minimist')(process.argv.slice(2));
+const argv = require("minimist")(process.argv.slice(2));
 
 const src_dir = path.join(__dirname, "/src");
 const nodeEnv = process.env.NODE_ENV || "development";
 
 const webPackDefaultPlugins = [
     new webpack.DllReferencePlugin({
-        context: '.',
-        manifest: require('./dist/vendor-manifest.json')
+        context: ".",
+        manifest: require("./dist/vendor-manifest.json")
     }),
     new webpack.NoEmitOnErrorsPlugin(),
     new HtmlWebpackPlugin({
         // Required
         inject: false,
-        template: 'node_modules/html-webpack-template/index.ejs',
+        template: "node_modules/html-webpack-template/index.ejs",
 
         appMountId: "app",
         file: "index.html",
@@ -34,11 +34,11 @@ const webPackDefaultPlugins = [
         "process.env": {NODE_ENV: JSON.stringify(nodeEnv)}
     }),
     new webpack.ProvidePlugin({
-        '$': "jquery",
-        'jQuery': "jquery"
+        "$": "jquery",
+        "jQuery": "jquery"
     }),
     new CopyWebpackPlugin([{
-        from: src_dir + '/assets/**/*'
+        from: src_dir + "/assets/**/*"
     }]),
     new webpack.optimize.CommonsChunkPlugin({
         names: buildDep(["app", "vendor"], ["app", "vendor", "manifest"]),
@@ -53,7 +53,7 @@ const webPackDefaultPlugins = [
 
 const webPackDevPlugins = [
     new StyleLintPlugin({
-        files: ['src/**/*.less'],
+        files: ["src/**/*.less"],
         failOnError: false,
         emitErrors: false,
         syntax: "less"
@@ -68,8 +68,8 @@ const webPackDefaultLoaders = [
         test: /\.(tsx|ts)$/,
         exclude: /node_modules/,
         loaders: buildDep(
-            ['react-hot-loader/webpack', 'ts-loader'],
-            ['ts-loader']
+            ["react-hot-loader/webpack", "ts-loader"],
+            ["ts-loader"]
         )
     }, {
         test: /\.json$/,
@@ -82,14 +82,14 @@ const webPackDefaultLoaders = [
         }))
     }, {
         test: /\.(jpe?g|png|gif)$/i,
-        loader: 'url-loader?limit=5000&name=/[path][name].[ext]?[hash]',
+        loader: "url-loader?limit=5000&name=/[path][name].[ext]?[hash]",
         exclude: /\/loading\/[^\/]+\.gif$/i
     }, {
         test: /\/loading\/[^\/]+\.gif$/i,
-        loader: 'url-loader?limit=5000&name=/[path][name].[ext]'
+        loader: "url-loader?limit=5000&name=/[path][name].[ext]"
     }, {
         test: /\.woff|\.woff2|\.svg|.eot|\.ttf/,
-        loader: 'url-loader?limit=5000&name=/[path][name].[ext]?[hash]'
+        loader: "url-loader?limit=5000&name=/[path][name].[ext]?[hash]"
     }
 ];
 
@@ -115,13 +115,13 @@ const config = {
 
     },
     output: {
-        path: path.join(__dirname, '/dist'),
+        path: path.join(__dirname, "/dist"),
         publicPath: buildDep("", "/react"),
         filename: buildDep("[name].js", "[name].[chunkhash].js"),
         chunkFilename: buildDep("[name].js", "[name].[chunkhash].js")
     },
     resolve: {
-        extensions: ['.ts', '.tsx', '.js'],
+        extensions: [".ts", ".tsx", ".js"],
         alias: {
             modernizr$: path.resolve(__dirname, "./.modernizrrc"),
             "settings": getSettingsFile()
@@ -171,7 +171,7 @@ function getSettingsFile() {
 }
 
 /**
- * If running in debug mode, return the 'debug' argument, else return the 'release' argument.
+ * If running in debug mode, return the "debug" argument, else return the "release" argument.
  */
 function buildDep(debug, release) {
     return isDebug() ? debug : release;

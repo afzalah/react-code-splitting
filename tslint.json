@@ -69,8 +69,5 @@
     "ban-types": true,
     "only-arrow-functions": false,
     "no-empty-interface": false
-  },
-  "rulesDirectory": [
-    "node_modules/tslint-no-unused-expression-chai/rules"
-  ]
+  }
 }

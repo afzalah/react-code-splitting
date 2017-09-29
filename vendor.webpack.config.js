@@ -1,25 +1,16 @@
 const webpack = require("webpack");
 const path = require("path");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 const nodeEnv = process.env.NODE_ENV || "development";
 
 module.exports = {
     entry: {
         vendor: [
-            "react", "react-dom", "react-transition-group", "react-redux", "react-router", "redux", "redux-thunk",
-            "jquery", "lodash", "numeral", "html-entities", "store",
-            "moment", "moment-range", "moment-timezone", "moment-duration-format",
-            "highcharts", "core-js", "history",
-            "rest", "rest/interceptor/pathPrefix", "rest/interceptor/template", "rest/interceptor/mime",
-            "rest/interceptor/errorCode", "rest/interceptor/defaultRequest",
-            "bootstrap", "bootstrap/dist/css/bootstrap.css", "bootstrap-daterangepicker",
-            "react-bootstrap", "react-bootstrap-daterangepicker", "react-highcharts", "react-list", "react-select",
-            "react-router-bootstrap",
-            "redux-persist-transform-encrypt", "elliptic", "bn.js", "browserify-aes", "hash.js",
-            "readable-stream", "buffer",
-            "sockjs-client", "json3", "url"
+            "react", "react-dom", "react-router", "jquery", "lodash", "numeral", "html-entities", "core-js", "history",
+            "bootstrap", "bootstrap/dist/css/bootstrap.css", "react-bootstrap", "react-select", "react-router-bootstrap",
+            "elliptic", "hash.js", "readable-stream", "buffer", "sockjs-client", "json3", "url"
         ]
     },
     output: {
@@ -30,9 +21,6 @@ module.exports = {
     module: {
         loaders: [
             {
-                test: /\.modernizrrc$/,
-                loader: "modernizr-loader"
-            }, {
                 test: /\.json$/,
                 loader: "json-loader"
             }, {
@@ -61,7 +49,7 @@ module.exports = {
         }),
         new ExtractTextPlugin("[name].[hash].css"),
         new OptimizeCssAssetsPlugin({
-            cssProcessor: require('cssnano'),
+            cssProcessor: require("cssnano"),
             cssProcessorOptions: {
                 discardComments: {removeAll: true}
             }

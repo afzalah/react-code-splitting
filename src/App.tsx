@@ -1,6 +1,5 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import {Provider} from "react-redux";
 import {Router, Route, useRouterHistory} from "react-router";
 import Homepage from "./components/homepage/Homepage";
 import {History, createHistory, useBasename} from "history";
@@ -17,14 +16,12 @@ class App extends React.Component<any, any> {
 
     public render(): React.ReactElement<any> {
         return (
-            <Provider>
-                <Router history={browserHistory}>
-                    <Route path="/">
-                        <Route path="homepage" component={Homepage}/>
-                        <Route path="*" component={Error404}/>
-                    </Route>
-                </Router>
-            </Provider>
+            <Router history={browserHistory}>
+                <Route path="/">
+                    <Route path="homepage" component={Homepage}/>
+                    <Route path="*" component={Error404}/>
+                </Route>
+            </Router>
         );
     }
 }
