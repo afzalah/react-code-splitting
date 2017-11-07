@@ -60,6 +60,11 @@ const webPackDevPlugins = [
     })
 ];
 
+const extractLess = new ExtractTextPlugin({
+    filename: "[name].[contenthash].css",
+    disable: process.env.NODE_ENV === "development"
+});
+
 const webPackDefaultLoaders = [
     {
         test: /\.modernizrrc$/,
@@ -76,9 +81,23 @@ const webPackDefaultLoaders = [
         loader: "json-loader"
     }, {
         test: /\.(less|css)$/,
-        loader: buildDep(["style-loader", "css-loader", "postcss-loader", "less-loader"], ExtractTextPlugin.extract({
-            fallback: "style-loader",
-            use: ["css-loader", "postcss-loader", "less-loader"]
+        loader: buildDep([{
+            loader: "style-loader"
+        }, {
+            loader: "css-loader"
+        }, {
+            loader: "less-loader", options: {
+                strictMath: true,
+                noIeCompat: true
+            }
+        }], extractLess.extract({
+            use: [{
+                loader: "css-loader"
+            }, {
+                loader: "less-loader"
+            }],
+            // use style-loader in development
+            fallback: "style-loader"
         }))
     }, {
         test: /\.(jpe?g|png|gif)$/i,
